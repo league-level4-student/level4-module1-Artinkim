@@ -4,7 +4,8 @@ package _01_Custom_ArrayList;
 
 public class ArrayList <T>{
 	
-	public ArrayList() {
+	public <Template> Template  ArrayList(Template t) {
+		Template[] arr = new ;
 	}
 	
 	public T get(int loc) throws IndexOutOfBoundsException {
