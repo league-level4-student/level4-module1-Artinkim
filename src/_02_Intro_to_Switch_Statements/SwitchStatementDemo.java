@@ -25,21 +25,20 @@ public class SwitchStatementDemo {
 			 *  Remove the 'break;' statements and run it again.
 			 *  What did you notice? What does 'break;' do?
 			 */
-			int x = new Random().nextInt(3);
+			int x = 1;
 			switch(x) {
-			case 0: 
-				System.out.println("0");
-				break;
-			case 1: 
-				System.out.println("1");
-				break;
-			case 2: 
-				System.out.println("2");
-				break;
 			default: 
 				System.out.println("Something went wrong :(");
-				break;
-			}
+			case 0: 
+				System.out.println("0");
+			
+			case 1: 
+				System.out.println("1");
+				
+			case 2: 
+				System.out.println("2");
+				
+			
 		}
 		
 		// Notice the break;
@@ -48,4 +47,5 @@ public class SwitchStatementDemo {
 		// Using objects with switch statements is very limited.
 		// It works with Strings and Enums.
 	}
+}
 }
