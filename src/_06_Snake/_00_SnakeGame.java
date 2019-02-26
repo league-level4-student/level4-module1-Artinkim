@@ -52,12 +52,9 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 				g2.setColor(BACKGROUND_COLOR);
 				g2.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-
 				g2.setColor(FOOD_COLOR);
-				g2.drawOval(foodLocation.x * WINDOW_SCALE, foodLocation.y * WINDOW_SCALE, Snake.BODY_SIZE,
-						Snake.BODY_SIZE);
+				g2.drawOval(foodLocation.x * WINDOW_SCALE, foodLocation.y * WINDOW_SCALE, Snake.BODY_SIZE, Snake.BODY_SIZE);
 				snake.draw(g);
-				System.out.println("h");
 			}
 		};
 
@@ -86,13 +83,13 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		String choice = options[input];
 		switch(choice) {
 		case "Expert": 
-			timer.setDelay(500);
+			timer.setDelay(100);
 			break;
 		case "Moderate": 
-			timer.setDelay(1000);
+			timer.setDelay(200);
 			break;
 		case "Beginner":
-			timer.setDelay(2000);
+			timer.setDelay(400);
 			break;
 		}
 		//2. Use a switch statement to determine which difficulty was chosen.
@@ -114,7 +111,6 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		System.out.println(e.getKeyCode());
 		//1. Use a switch statement on e.getKeyCode()
 		//   to determine which key was pressed.
 		if(e.getKeyCode() == 38) {
@@ -138,11 +134,11 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		// if the space key is pressed, call the snake's feed method
 		
 	}
-
+	
 	private void setFoodLocation() {
 		Random rand = new Random();
 		//1. Create a new Location object that is set to a random location
-		Location l = new Location(rand.nextInt(WINDOW_WIDTH),rand.nextInt(WINDOW_HEIGHT));
+		Location l = new Location(rand.nextInt(WIDTH),rand.nextInt(HEIGHT));
 		//2. set the foodLocation variable equal to the Location object you just created.
 		//   use the snake's isLocationOnSnake method to make sure you don't put the food on the snake
 		if(snake.isLocationOnSnake(l)) {
@@ -191,8 +187,9 @@ public class _00_SnakeGame implements ActionListener, KeyListener {
 		
 		//3. if the location of the head is equal to the location of the food,
 		// 	 feed the snake and set the food location
-		if(snake.getHeadLocation() == foodLocation) {
+		if(snake.getHeadLocation().equals(foodLocation)) {
 			snake.feed();
+			setFoodLocation();
 		}
 		//4. call panel.repaint();
 		panel.repaint();
